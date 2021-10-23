@@ -1,0 +1,57 @@
+Die sents werden erstellt.
+Die Erstellung der sents hat 53.04880881309509 Sekunden gedauert.
+Beispiel aus sents (Liste): [['CT-Training-BE001', 'SPIE-AAPM Lung CT Challenge']]
+--------------------------------------------------------------------------------------------------------------
+Die Daten werden in Test- und Trainingsmenge (train_sents und test_sents) geteilt
+Die Teilung der Daten hat 0.0002760887145996094 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Die Features werden ausgelesen und in einem Dictionary gespeichert.
+['Patient', 'General_Study', 'General_Series', 'General_Image', 'Image_Pixel', 'Samples_per_Pixel', 'Photometric_Interpretation', 'Rows', 'Columns', 'Bits_Allocated', 'Bits_Stored', 'High_Bit', 'Pixel_Representation', 'ContrastBolus', 'ContrastBolus_Agent', 'ContrastBolus_Route', 'ContrastBolus_Volume', 'Contrast_Flow_Rate', 'ContrastBolus_Ingredient_Concentration', 'Image_Plane', 'Image_Position_Patient', 'Image_Orientation_Patient', 'Pixel_Spacing', 'Slice_Thickness', 'Slice_Location', 'CT_Image', 'Image_Type', 'Rescale_Intercept', 'Rescale_Slope', 'General_Equipment', 'Manufacturer', 'Station_Name', 'Manufacturer_Model_Name', 'Software_Versions', 'SOP_Common', 'SOP_Class_UID', 'SOP_Instance_UID', 'Frame_of_Reference', 'Patient_Study', 'Patient_Age', 'Patient_Weight', 'Procedure_Code_Sequence', 'Code_Value', 'Coding_Scheme_Designator', 'Code_Meaning', 'Referenced_Performed_Procedure_Step_Sequence', 'Referenced_SOP_Class_UID', 'Referenced_SOP_Instance_UID']
+Folgende Features wurden gefunden: {'ReferringPhysicianName': '', 'ReferencedSOPInstanceUID': '', 'ContrastBolusRoute': '', 'ContrastBolusVolume': '', 'BodyPartExamined': '', 'SliceLocation': '', 'RescaleIntercept': '', 'ImagePositionPatient': '', 'BitsAllocated': '', 'CodingSchemeDesignator': '', 'StudyDescription': '', 'CodeMeaning': '', 'HighBit': '', 'SeriesNumber': '', 'BitsStored': '', 'ImageOrientationPatient': '', 'Manufacturer': '', 'SeriesDescription': '', 'ContrastBolusIngredientConcentration': '', 'SamplesPerPixel': '', 'ProtocolName': '', 'ContrastFlowRate': '', 'ReferencedSOPClassUID': '', 'ImageType': '', 'AccessionNumber': '', 'ProcedureCodeSequence': '', 'PhotometricInterpretation': '', 'PixelSpacing': '', 'StudyTime': '', 'PatientPosition': '', 'StationName': '', 'PatientAge': '', 'InstanceNumber': '', 'ContrastBolusAgent': '', 'SliceThickness': '', 'RescaleSlope': '', 'Modality': '', 'StudyDate': '', 'SoftwareVersions': '', 'PatientIdentityRemoved': '', 'StudyID': '', 'Rows': '', 'Columns': '', 'SOPInstanceUID': '', 'SOPClassUID': '', 'FrameOfReferenceUID': '', 'ManufacturerModelName': '', 'DeidentificationMethod': '', 'PatientWeight': '', 'CodeValue': '', 'PatientName': '', 'PixelRepresentation': '', 'Source': '', 'File': '', 'Usage': '', 'Sex': ''}
+Die Erstellung der Features hat 0.00429987907409668 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Ein Beispiel aus der Menge train_sents: [['LUNGx-CT019', 'SPIE-AAPM Lung CT Challenge']].
+train_sents hat die Länge 56.
+Ein Beispiel aus der Menge test_sents: [[['LUNGx-CT030', 'SPIE-AAPM Lung CT Challenge']], [['LUNGx-CT021', 'SPIE-AAPM Lung CT Challenge']], [['LUNGx-CT004', 'SPIE-AAPM Lung CT Challenge']], [['LUNGx-CT047', 'SPIE-AAPM Lung CT Challenge']], [['CT-Training-LC001', 'SPIE-AAPM Lung CT Challenge']], [['LUNGx-CT027', 'SPIE-AAPM Lung CT Challenge']], [['LUNGx-CT031', 'SPIE-AAPM Lung CT Challenge']], [['LUNGx-CT045', 'SPIE-AAPM Lung CT Challenge']], [['LUNGx-CT020', 'SPIE-AAPM Lung CT Challenge']], [['LUNGx-CT006', 'SPIE-AAPM Lung CT Challenge']], [['LUNGx-CT013', 'SPIE-AAPM Lung CT Challenge']], [['LUNGx-CT008', 'SPIE-AAPM Lung CT Challenge']], [['LUNGx-CT017', 'SPIE-AAPM Lung CT Challenge']], [['LUNGx-CT001', 'SPIE-AAPM Lung CT Challenge']]].
+test_sents hat die Länge 14.
+Ein Beispiel für die Daten, nachdem sie an sent2features und sent2labels gesendet wurden:
+y_train an Stelle 0: SPIE-AAPM Lung CT Challenge
+X_train an Stelle 0: {'ReferringPhysicianName': 'None', 'ReferencedSOPInstanceUID': 'None', 'ContrastBolusRoute': 'None', 'ContrastBolusVolume': 'None', 'BodyPartExamined': 'None', 'SliceLocation': 'None', 'RescaleIntercept': 'None', 'ImagePositionPatient': 'None', 'BitsAllocated': 'None', 'CodingSchemeDesignator': 'None', 'StudyDescription': 'None', 'CodeMeaning': 'None', 'HighBit': 'None', 'SeriesNumber': 'None', 'BitsStored': 'None', 'ImageOrientationPatient': 'None', 'Manufacturer': 'None', 'SeriesDescription': 'None', 'ContrastBolusIngredientConcentration': 'None', 'SamplesPerPixel': 'None', 'ProtocolName': 'None', 'ContrastFlowRate': 'None', 'ReferencedSOPClassUID': 'None', 'ImageType': 'None', 'AccessionNumber': 'None', 'ProcedureCodeSequence': 'None', 'PhotometricInterpretation': 'None', 'PixelSpacing': 'None', 'StudyTime': 'None', 'PatientPosition': 'None', 'StationName': 'None', 'PatientAge': 'None', 'InstanceNumber': 'None', 'ContrastBolusAgent': 'None', 'SliceThickness': 'None', 'RescaleSlope': 'None', 'Modality': 'None', 'StudyDate': 'None', 'SoftwareVersions': 'None', 'PatientIdentityRemoved': 'YES', 'StudyID': 'None', 'Rows': 'None', 'Columns': 'None', 'SOPInstanceUID': 'None', 'SOPClassUID': 'None', 'FrameOfReferenceUID': 'None', 'ManufacturerModelName': 'None', 'DeidentificationMethod': "['dcmfix 20100920-g81272519', 'dcmfix 20100920-g81272519']", 'PatientWeight': 'None', 'CodeValue': 'None', 'PatientName': 'LUNGx-CT019', 'PixelRepresentation': 'None', 'Source': 'None', 'File': 'None', 'Usage': 'None', 'Sex': 'None'}
+--------------------------------------------------------------------------------------------------------------
+Sende die Knoten jedes sents aus X_train an die nodes_to_features-Methode, die dann die Features für jeden Knoten des sents ausliest
+Die Methode sent_to_features hat für X_train 100.1317811012268 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Für jeden sent in y_train wird das Label für jeden enthaltenen Knoten gefunden.
+Die Methode sent_to_labels hat 3.0040740966796875e-05 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Sende die Knoten jedes sents aus X_test an die nodes_to_features-Methode, die dann die Features für jeden Knoten des sents ausliest
+Die Methode sent_to_features hat für X_test 24.194974184036255 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Für jeden sent in y_test wird das Label für jeden enthaltenen Knoten gefunden.
+Die Methode sent_to_labels hat 1.0013580322265625e-05 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+Das eigentliche Training mithilfe der CRFs wird durchgeführt.
+Training...
+Das Training ist beendet. Es hat 0.0033898353576660156 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Evaluation des Trainings:
+Die Knotenlabels:
+['SPIE-AAPM Lung CT Challenge']
+Prediction-Vektor wird erstellt.
+Die Erstellung des Prediction-Vektors hat 0.0003437995910644531 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Der F1-Score wird für alle Label berechnet
+1.0
+Die Berechnung des F1-Scores hat 0.0010652542114257812 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Betrachte einzelne Labels im Detail:
+                             precision    recall  f1-score   support
+
+SPIE-AAPM Lung CT Challenge     1.0000    1.0000    1.0000        14
+
+                   accuracy                         1.0000        14
+                  macro avg     1.0000    1.0000    1.0000        14
+               weighted avg     1.0000    1.0000    1.0000        14
+
+Die Betrachtung der Labels im Detail hat 0.0 Sekunden gedauert.

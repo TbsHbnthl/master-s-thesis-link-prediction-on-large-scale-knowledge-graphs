@@ -1,0 +1,66 @@
+/usr/local/bin/python3.8 "/Users/tobias/Library/Mobile Documents/com~apple~CloudDocs/Documents/Uni/Masterarbeit/Python/CRFs/scripts for ssh/crf_fromImport_10_noDups.py"
+starting main
+Die sents werden erstellt.
+Die Erstellung der sents hat 0.447490930557251 Sekunden gedauert.
+Beispiel aus sents (Liste): [('CT-Training-BE001', 'SPIE-AAPM Lung CT Challenge'), ('1.2.840.113704.1.111.2112.1167842143.1', 'Procedure_Code_Sequence')]
+--------------------------------------------------------------------------------------------------------------
+Die Daten werden in Test- und Trainingsmenge (train_sents und test_sents) geteilt
+Die Teilung der Daten hat 0.00022602081298828125 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Die Features werden ausgelesen und in einem Dictionary gespeichert.
+['Patient', 'General_Study', 'General_Series', 'General_Image', 'Image_Pixel', 'Samples_per_Pixel', 'Photometric_Interpretation', 'Rows', 'Columns', 'Bits_Allocated', 'Bits_Stored', 'High_Bit', 'Pixel_Representation', 'ContrastBolus', 'ContrastBolus_Agent', 'ContrastBolus_Route', 'ContrastBolus_Volume', 'Contrast_Flow_Rate', 'ContrastBolus_Ingredient_Concentration', 'Image_Plane', 'Image_Position_Patient', 'Image_Orientation_Patient', 'Pixel_Spacing', 'Slice_Thickness', 'Slice_Location', 'CT_Image', 'Image_Type', 'Rescale_Intercept', 'Rescale_Slope', 'General_Equipment', 'Manufacturer', 'Station_Name', 'Manufacturer_Model_Name', 'Software_Versions', 'SOP_Common', 'SOP_Class_UID', 'SOP_Instance_UID', 'Frame_of_Reference', 'Patient_Study', 'Patient_Age', 'Patient_Weight', 'Procedure_Code_Sequence', 'Code_Value', 'Coding_Scheme_Designator', 'Code_Meaning', 'Referenced_Performed_Procedure_Step_Sequence', 'Referenced_SOP_Class_UID', 'Referenced_SOP_Instance_UID']
+Folgende Features wurden gefunden: {'ContrastBolusAgent': '', 'StudyDescription': '', 'PatientPosition': '', 'Rows': '', 'PatientAge': '', 'RescaleIntercept': '', 'BitsAllocated': '', 'StudyDate': '', 'SoftwareVersions': '', 'DeidentificationMethod': '', 'ReferringPhysicianName': '', 'BodyPartExamined': '', 'PatientName': '', 'PhotometricInterpretation': '', 'ContrastFlowRate': '', 'SliceLocation': '', 'Columns': '', 'StationName': '', 'ProtocolName': '', 'CodingSchemeDesignator': '', 'StudyTime': '', 'PatientIdentityRemoved': '', 'Manufacturer': '', 'SeriesNumber': '', 'BitsStored': '', 'ImagePositionPatient': '', 'ManufacturerModelName': '', 'SliceThickness': '', 'PixelRepresentation': '', 'SOPInstanceUID': '', 'AccessionNumber': '', 'FrameOfReferenceUID': '', 'PixelSpacing': '', 'HighBit': '', 'ImageType': '', 'PatientWeight': '', 'ProcedureCodeSequence': '', 'ContrastBolusVolume': '', 'RescaleSlope': '', 'StudyID': '', 'SeriesDescription': '', 'ReferencedSOPClassUID': '', 'ReferencedSOPInstanceUID': '', 'CodeValue': '', 'ImageOrientationPatient': '', 'SOPClassUID': '', 'CodeMeaning': '', 'Modality': '', 'ContrastBolusIngredientConcentration': '', 'SamplesPerPixel': '', 'ContrastBolusRoute': '', 'InstanceNumber': '', 'Source': '', 'File': '', 'Usage': '', 'Sex': '', 'previous': '', 'next': ''}
+Die Erstellung der Features hat 0.004136085510253906 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Ein Beispiel aus der Menge train_sents: [('LUNGx-CT031', 'SPIE-AAPM Lung CT Challenge'), ('1.3.517661235795504018860804953486268569756257125884', 'Procedure_Code_Sequence')].
+train_sents hat die Laenge 56.
+Ein Beispiel aus der Menge test_sents: [('LUNGx-CT022', 'SPIE-AAPM Lung CT Challenge'), ('1.3.1387935719742216297071597417967766127484226494126', 'Procedure_Code_Sequence')].
+test_sents hat die Laenge 14.
+Ein Beispiel fuer die Daten, nachdem sie an sent2features und sent2labels gesendet wurden:
+train_sents[0]: [('LUNGx-CT031', 'SPIE-AAPM Lung CT Challenge'), ('1.3.517661235795504018860804953486268569756257125884', 'Procedure_Code_Sequence')]
+--------------------------------------------------------------------------------------------------------------
+Sende die Knoten jedes sents aus X_train an die nodes_to_features-Methode, die dann die Features fuer jeden Knoten des sents ausliest
+56
+Die Methode sent_to_features hat fuer X_train 31.839799880981445 Sekunden gebraucht.
+56
+--------------------------------------------------------------------------------------------------------------
+Fuer jeden sent in y_train wird das Label fuer jeden enthaltenen Knoten gefunden.
+Die Methode sent_to_labels hat 6.198883056640625e-05 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Sende die Knoten jedes sents aus X_test an die nodes_to_features-Methode, die dann die Features fuer jeden Knoten des sents ausliest
+Die Methode sent_to_features hat fuer X_test 9.23806118965149 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Fuer jeden sent in y_test wird das Label fuer jeden enthaltenen Knoten gefunden.
+Die Methode sent_to_labels hat 3.0994415283203125e-05 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+Das eigentliche Training mithilfe der CRFs wird durchgefuehrt.
+Training...
+Das Training ist beendet. Es hat 0.024302005767822266 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Evaluation des Trainings:
+Beispiel fuer ein Knotenlabel:
+SPIE-AAPM Lung CT Challenge
+Prediction-Vektor wird erstellt.
+Die Erstellung des Prediction-Vektors hat 0.0009658336639404297 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Der F1-Score wird fuer alle Label berechnet
+1.0
+Die Berechnung des F1-Scores hat 0.0015170574188232422 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Betrachte einzelne Labels im Detail:
+                             precision    recall  f1-score   support
+
+SPIE-AAPM Lung CT Challenge     1.0000    1.0000    1.0000        14
+                  Mandatory     1.0000    1.0000    1.0000         6
+    Procedure_Code_Sequence     1.0000    1.0000    1.0000         8
+
+                   accuracy                         1.0000        28
+                  macro avg     1.0000    1.0000    1.0000        28
+               weighted avg     1.0000    1.0000    1.0000        28
+
+Die Betrachtung der Labels im Detail hat 0.0 Sekunden gedauert.
+/usr/local/lib/python3.8/site-packages/sklearn/utils/validation.py:70: FutureWarning: Pass labels=['SPIE-AAPM Lung CT Challenge', 'Mandatory', 'Procedure_Code_Sequence'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+
+Process finished with exit code 0

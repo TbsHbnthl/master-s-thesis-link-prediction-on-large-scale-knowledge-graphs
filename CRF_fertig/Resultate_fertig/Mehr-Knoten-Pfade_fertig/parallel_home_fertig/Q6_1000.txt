@@ -1,0 +1,196 @@
+/usr/local/bin/python3.8 "/Users/tobias/Library/Mobile Documents/com~apple~CloudDocs/Documents/Uni/Masterarbeit/Python/Dicom Converter/test4.py"
+starting main
+Die sents werden erstellt.
+Die Erstellung der sents hat 0.4424738883972168 Sekunden gedauert.
+Beispiel aus sents (Liste): [('CT-Training-BE001', '073Y'), ('1.2.840.113704.1.111.2112.1167842143.1', '1.2.840.113704.1.111.2112.1167842347.17')]
+--------------------------------------------------------------------------------------------------------------
+Die Daten werden in Test- und Trainingsmenge (train_sents und test_sents) geteilt
+Die Teilung der Daten hat 0.0003819465637207031 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Die Features werden ausgelesen und in einem Dictionary gespeichert.
+['Patient', 'General_Study', 'General_Series', 'General_Image', 'Image_Pixel', 'Samples_per_Pixel', 'Photometric_Interpretation', 'Rows', 'Columns', 'Bits_Allocated', 'Bits_Stored', 'High_Bit', 'Pixel_Representation', 'ContrastBolus', 'ContrastBolus_Agent', 'ContrastBolus_Route', 'ContrastBolus_Volume', 'Contrast_Flow_Rate', 'ContrastBolus_Ingredient_Concentration', 'Image_Plane', 'Image_Position_Patient', 'Image_Orientation_Patient', 'Pixel_Spacing', 'Slice_Thickness', 'Slice_Location', 'CT_Image', 'Image_Type', 'Rescale_Intercept', 'Rescale_Slope', 'General_Equipment', 'Manufacturer', 'Station_Name', 'Manufacturer_Model_Name', 'Software_Versions', 'SOP_Common', 'SOP_Class_UID', 'SOP_Instance_UID', 'Frame_of_Reference', 'Patient_Study', 'Patient_Age', 'Patient_Weight', 'Procedure_Code_Sequence', 'Code_Value', 'Coding_Scheme_Designator', 'Code_Meaning', 'Referenced_Performed_Procedure_Step_Sequence', 'Referenced_SOP_Class_UID', 'Referenced_SOP_Instance_UID']
+Folgende Features wurden gefunden: {'HighBit': '', 'CodeValue': '', 'PhotometricInterpretation': '', 'StudyDate': '', 'BitsAllocated': '', 'ContrastBolusIngredientConcentration': '', 'ProcedureCodeSequence': '', 'SeriesNumber': '', 'ImageOrientationPatient': '', 'RescaleSlope': '', 'SliceLocation': '', 'BitsStored': '', 'ReferencedSOPClassUID': '', 'ContrastBolusAgent': '', 'StudyDescription': '', 'ImageType': '', 'ReferringPhysicianName': '', 'SamplesPerPixel': '', 'ImagePositionPatient': '', 'StationName': '', 'CodingSchemeDesignator': '', 'ReferencedSOPInstanceUID': '', 'SeriesDescription': '', 'InstanceNumber': '', 'StudyTime': '', 'Rows': '', 'CodeMeaning': '', 'PixelRepresentation': '', 'ContrastBolusVolume': '', 'SliceThickness': '', 'Columns': '', 'ContrastBolusRoute': '', 'SOPClassUID': '', 'PixelSpacing': '', 'ManufacturerModelName': '', 'PatientName': '', 'AccessionNumber': '', 'PatientPosition': '', 'Modality': '', 'Manufacturer': '', 'FrameOfReferenceUID': '', 'DeidentificationMethod': '', 'PatientIdentityRemoved': '', 'BodyPartExamined': '', 'RescaleIntercept': '', 'StudyID': '', 'SOPInstanceUID': '', 'PatientWeight': '', 'SoftwareVersions': '', 'PatientAge': '', 'ContrastFlowRate': '', 'ProtocolName': '', 'Source': '', 'File': '', 'Usage': '', 'Sex': '', 'previous': '', 'next': ''}
+Die Erstellung der Features hat 0.004616260528564453 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Ein Beispiel aus der Menge train_sents: [('CT-Training-BE001', '1-111.dcm'), ('1.2.840.113704.1.111.2112.1167842143.1', 'CT INFUSED CHEST')].
+train_sents hat die Länge 800.
+Ein Beispiel aus der Menge test_sents: [('CT-Training-BE001', '073Y'), ('1.2.840.113704.1.111.2112.1167842143.1', '20070103103543')].
+test_sents hat die Länge 200.
+Ein Beispiel für die Daten, nachdem sie an sent2features und sent2labels gesendet wurden:
+train_sents[0]: [('CT-Training-BE001', '1-111.dcm'), ('1.2.840.113704.1.111.2112.1167842143.1', 'CT INFUSED CHEST')]
+--------------------------------------------------------------------------------------------------------------
+Sende die Knoten jedes sents aus X_train an die nodes_to_features-Methode, die dann die Features für jeden Knoten des sents ausliest
+800
+Die Methode sent_to_features hat für X_train 490.2970371246338 Sekunden gebraucht.
+800
+--------------------------------------------------------------------------------------------------------------
+Für jeden sent in y_train wird das Label für jeden enthaltenen Knoten gefunden.
+Die Methode sent_to_labels hat 0.0011761188507080078 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Sende die Knoten jedes sents aus X_test an die nodes_to_features-Methode, die dann die Features für jeden Knoten des sents ausliest
+Die Methode sent_to_features hat für X_test 130.75863599777222 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Für jeden sent in y_test wird das Label für jeden enthaltenen Knoten gefunden.
+Die Methode sent_to_labels hat 0.0001888275146484375 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+Das eigentliche Training mithilfe der CRFs wird durchgeführt.
+Training...
+Das Training ist beendet. Es hat 4.117328882217407 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Evaluation des Trainings:
+Beispiel für ein Knotenlabel:
+1-111.dcm
+Prediction-Vektor wird erstellt.
+Die Erstellung des Prediction-Vektors hat 0.03122687339782715 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Der F1-Score wird für alle Label berechnet
+0.003875598086124402
+Die Berechnung des F1-Scores hat 0.005715847015380859 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Betrachte einzelne Labels im Detail:
+                                         precision    recall  f1-score   support
+
+                              1-001.dcm     0.0000    0.0000    0.0000         1
+                              1-002.dcm     0.0000    0.0000    0.0000         2
+                              1-003.dcm     0.0000    0.0000    0.0000         1
+                              1-004.dcm     0.0000    0.0000    0.0000         3
+                              1-005.dcm     0.0000    0.0000    0.0000         0
+                              1-006.dcm     0.0000    0.0000    0.0000         1
+                              1-007.dcm     0.0000    0.0000    0.0000         0
+                              1-008.dcm     0.0000    0.0000    0.0000         3
+                              1-009.dcm     0.0000    0.0000    0.0000         3
+                              1-010.dcm     0.0000    0.0000    0.0000         2
+                              1-011.dcm     0.0000    0.0000    0.0000         1
+                              1-012.dcm     0.0000    0.0000    0.0000         1
+                              1-013.dcm     0.0000    0.0000    0.0000         6
+                              1-014.dcm     0.0000    0.0000    0.0000         1
+                              1-015.dcm     0.0000    0.0000    0.0000         1
+                              1-016.dcm     0.0000    0.0000    0.0000         3
+                              1-017.dcm     0.0000    0.0000    0.0000         1
+                              1-018.dcm     0.0000    0.0000    0.0000         4
+                              1-019.dcm     0.0000    0.0000    0.0000         2
+                              1-020.dcm     0.0000    0.0000    0.0000         3
+                              1-021.dcm     0.0000    0.0000    0.0000         0
+                              1-022.dcm     0.0000    0.0000    0.0000         4
+                              1-023.dcm     0.0000    0.0000    0.0000         1
+                              1-024.dcm     0.0000    0.0000    0.0000         2
+                              1-025.dcm     0.0000    0.0000    0.0000         0
+                              1-026.dcm     0.0000    0.0000    0.0000         3
+                              1-027.dcm     0.0000    0.0000    0.0000         2
+                              1-028.dcm     0.0000    0.0000    0.0000         2
+                              1-029.dcm     0.0000    0.0000    0.0000         2
+                              1-030.dcm     0.0000    0.0000    0.0000         1
+                              1-031.dcm     0.0000    0.0000    0.0000         1
+                              1-032.dcm     0.0000    0.0000    0.0000         2
+                              1-033.dcm     0.0000    0.0000    0.0000         2
+                              1-034.dcm     0.0000    0.0000    0.0000         2
+                              1-035.dcm     0.0000    0.0000    0.0000         4
+                              1-036.dcm     0.0000    0.0000    0.0000         2
+                              1-037.dcm     0.0000    0.0000    0.0000         1
+                              1-038.dcm     0.0000    0.0000    0.0000         0
+                              1-039.dcm     0.0000    0.0000    0.0000         1
+                              1-040.dcm     0.0000    0.0000    0.0000         1
+                              1-041.dcm     0.0000    0.0000    0.0000         2
+                              1-042.dcm     0.0000    0.0000    0.0000         1
+                              1-043.dcm     0.0000    0.0000    0.0000         1
+                              1-044.dcm     0.0000    0.0000    0.0000         5
+                              1-045.dcm     0.0000    0.0000    0.0000         3
+                              1-046.dcm     0.0000    0.0000    0.0000         1
+                              1-047.dcm     0.0000    0.0000    0.0000         0
+                              1-048.dcm     0.0000    0.0000    0.0000         1
+                              1-049.dcm     0.0000    0.0000    0.0000         1
+                              1-050.dcm     0.0000    0.0000    0.0000         2
+                              1-051.dcm     0.0000    0.0000    0.0000         2
+                              1-052.dcm     0.0000    0.0000    0.0000         4
+                              1-053.dcm     0.0000    0.0000    0.0000         1
+                              1-054.dcm     0.0000    0.0000    0.0000         0
+                              1-055.dcm     0.0000    0.0000    0.0000         1
+                              1-056.dcm     0.0000    0.0000    0.0000         1
+                              1-057.dcm     0.0000    0.0000    0.0000         1
+                              1-058.dcm     0.0000    0.0000    0.0000         1
+                              1-059.dcm     0.0000    0.0000    0.0000         2
+                              1-060.dcm     0.0000    0.0000    0.0000         2
+                              1-061.dcm     0.0000    0.0000    0.0000         3
+                              1-062.dcm     0.0000    0.0000    0.0000         2
+                              1-063.dcm     0.0000    0.0000    0.0000         0
+                              1-064.dcm     0.0000    0.0000    0.0000         1
+                              1-065.dcm     0.0000    0.0000    0.0000         2
+                              1-066.dcm     0.0000    0.0000    0.0000         1
+                              1-067.dcm     0.0000    0.0000    0.0000         2
+                              1-068.dcm     0.0000    0.0000    0.0000         2
+                              1-069.dcm     0.0000    0.0000    0.0000         3
+                              1-070.dcm     0.0000    0.0000    0.0000         3
+                              1-071.dcm     0.0000    0.0000    0.0000         0
+                              1-072.dcm     0.0000    0.0000    0.0000         1
+                              1-073.dcm     0.0000    0.0000    0.0000         1
+                              1-074.dcm     0.0000    0.0000    0.0000         1
+                              1-075.dcm     0.0000    0.0000    0.0000         2
+                              1-076.dcm     0.0000    0.0000    0.0000         3
+                              1-077.dcm     0.0000    0.0000    0.0000         0
+                              1-078.dcm     0.0000    0.0000    0.0000         2
+                              1-079.dcm     0.0000    0.0000    0.0000         0
+                              1-080.dcm     0.0000    0.0000    0.0000         0
+                              1-081.dcm     0.0000    0.0000    0.0000         2
+                              1-082.dcm     0.0000    0.0000    0.0000         1
+                              1-083.dcm     0.0000    0.0000    0.0000         0
+                              1-084.dcm     0.0000    0.0000    0.0000         0
+                              1-085.dcm     0.0000    0.0000    0.0000         0
+                              1-086.dcm     0.0000    0.0000    0.0000         2
+                              1-087.dcm     0.0000    0.0000    0.0000         3
+                              1-088.dcm     0.0000    0.0000    0.0000         3
+                              1-089.dcm     0.0000    0.0000    0.0000         0
+                              1-090.dcm     0.0000    0.0000    0.0000         3
+                              1-091.dcm     0.0000    0.0000    0.0000         3
+                              1-092.dcm     0.0000    0.0000    0.0000         2
+                              1-093.dcm     0.0000    0.0000    0.0000         2
+                              1-094.dcm     0.0000    0.0000    0.0000         1
+                              1-095.dcm     0.0000    0.0000    0.0000         2
+                              1-096.dcm     0.0000    0.0000    0.0000         0
+                              1-097.dcm     0.0000    0.0000    0.0000         0
+                              1-098.dcm     0.0000    0.0000    0.0000         2
+                              1-099.dcm     0.0000    0.0000    0.0000         1
+                              1-100.dcm     0.0000    0.0000    0.0000         2
+                              1-101.dcm     0.0000    0.0000    0.0000         1
+                              1-102.dcm     0.0000    0.0000    0.0000         0
+                              1-103.dcm     0.0000    0.0000    0.0000         1
+                              1-104.dcm     0.0000    0.0000    0.0000         1
+                              1-105.dcm     0.0000    0.0000    0.0000         3
+                              1-106.dcm     0.0000    0.0000    0.0000         0
+                              1-107.dcm     0.0000    0.0000    0.0000         4
+                              1-108.dcm     0.0000    0.0000    0.0000         1
+                              1-109.dcm     0.0000    0.0000    0.0000         0
+                              1-110.dcm     0.0000    0.0000    0.0000         1
+                              1-111.dcm     0.0000    0.0000    0.0000         1
+                              1-112.dcm     0.0000    0.0000    0.0000         2
+                              1-113.dcm     0.0000    0.0000    0.0000         0
+                              1-114.dcm     0.0000    0.0000    0.0000         3
+                              1-115.dcm     0.0000    0.0000    0.0000         2
+                              1-116.dcm     0.0000    0.0000    0.0000         2
+                              1-117.dcm     0.0000    0.0000    0.0000         0
+                              1-118.dcm     0.0000    0.0000    0.0000         3
+                              1-119.dcm     0.0000    0.0000    0.0000         1
+                              1-120.dcm     0.0000    0.0000    0.0000         2
+                              1-121.dcm     0.0000    0.0000    0.0000         4
+                              1-122.dcm     0.0000    0.0000    0.0000         1
+                              1-123.dcm     0.0000    0.0000    0.0000         0
+                              1-124.dcm     0.0000    0.0000    0.0000         2
+1.2.840.113704.1.111.2112.1167842347.17     0.0000    0.0000    0.0000        29
+                         20070103103543     0.0000    0.0000    0.0000        31
+                                   073Y     0.0000    0.0000    0.0000         3
+                                  LOCAL     0.0450    1.0000    0.0861        18
+                       CT INFUSED CHEST     0.0000    0.0000    0.0000        24
+                                    ITC     0.0000    0.0000    0.0000        24
+                              Mandatory     0.0000    0.0000    0.0000        26
+                          Patient_Study     0.0000    0.0000    0.0000        21
+                Procedure_Code_Sequence     0.0000    0.0000    0.0000        27
+
+                              micro avg     0.0450    0.0450    0.0450       400
+                              macro avg     0.0003    0.0075    0.0006       400
+                           weighted avg     0.0020    0.0450    0.0039       400
+
+Die Betrachtung der Labels im Detail hat 0.0 Sekunden gedauert.
+/usr/local/lib/python3.8/site-packages/sklearn/utils/validation.py:70: FutureWarning: Pass labels=['1-001.dcm', '1-002.dcm', '1-003.dcm', '1-004.dcm', '1-005.dcm', '1-006.dcm', '1-007.dcm', '1-008.dcm', '1-009.dcm', '1-010.dcm', '1-011.dcm', '1-012.dcm', '1-013.dcm', '1-014.dcm', '1-015.dcm', '1-016.dcm', '1-017.dcm', '1-018.dcm', '1-019.dcm', '1-020.dcm', '1-021.dcm', '1-022.dcm', '1-023.dcm', '1-024.dcm', '1-025.dcm', '1-026.dcm', '1-027.dcm', '1-028.dcm', '1-029.dcm', '1-030.dcm', '1-031.dcm', '1-032.dcm', '1-033.dcm', '1-034.dcm', '1-035.dcm', '1-036.dcm', '1-037.dcm', '1-038.dcm', '1-039.dcm', '1-040.dcm', '1-041.dcm', '1-042.dcm', '1-043.dcm', '1-044.dcm', '1-045.dcm', '1-046.dcm', '1-047.dcm', '1-048.dcm', '1-049.dcm', '1-050.dcm', '1-051.dcm', '1-052.dcm', '1-053.dcm', '1-054.dcm', '1-055.dcm', '1-056.dcm', '1-057.dcm', '1-058.dcm', '1-059.dcm', '1-060.dcm', '1-061.dcm', '1-062.dcm', '1-063.dcm', '1-064.dcm', '1-065.dcm', '1-066.dcm', '1-067.dcm', '1-068.dcm', '1-069.dcm', '1-070.dcm', '1-071.dcm', '1-072.dcm', '1-073.dcm', '1-074.dcm', '1-075.dcm', '1-076.dcm', '1-077.dcm', '1-078.dcm', '1-079.dcm', '1-080.dcm', '1-081.dcm', '1-082.dcm', '1-083.dcm', '1-084.dcm', '1-085.dcm', '1-086.dcm', '1-087.dcm', '1-088.dcm', '1-089.dcm', '1-090.dcm', '1-091.dcm', '1-092.dcm', '1-093.dcm', '1-094.dcm', '1-095.dcm', '1-096.dcm', '1-097.dcm', '1-098.dcm', '1-099.dcm', '1-100.dcm', '1-101.dcm', '1-102.dcm', '1-103.dcm', '1-104.dcm', '1-105.dcm', '1-106.dcm', '1-107.dcm', '1-108.dcm', '1-109.dcm', '1-110.dcm', '1-111.dcm', '1-112.dcm', '1-113.dcm', '1-114.dcm', '1-115.dcm', '1-116.dcm', '1-117.dcm', '1-118.dcm', '1-119.dcm', '1-120.dcm', '1-121.dcm', '1-122.dcm', '1-123.dcm', '1-124.dcm', '1.2.840.113704.1.111.2112.1167842347.17', '20070103103543', '073Y', 'LOCAL', 'CT INFUSED CHEST', 'ITC', 'Mandatory', 'Patient_Study', 'Procedure_Code_Sequence'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+
+Process finished with exit code 0

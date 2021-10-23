@@ -1,0 +1,93 @@
+Die sents werden erstellt.
+Die Erstellung der sents hat 1.3002960681915283 Sekunden gedauert.
+Beispiel aus sents (Liste): [['CT-Training-BE001', '073Y']]
+--------------------------------------------------------------------------------------------------------------
+Die Daten werden in Test- und Trainingsmenge (train_sents und test_sents) geteilt
+Die Teilung der Daten hat 0.00022983551025390625 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Die Features werden ausgelesen und in einem Dictionary gespeichert.
+['Patient', 'General_Study', 'General_Series', 'General_Image', 'Image_Pixel', 'Samples_per_Pixel', 'Photometric_Interpretation', 'Rows', 'Columns', 'Bits_Allocated', 'Bits_Stored', 'High_Bit', 'Pixel_Representation', 'ContrastBolus', 'ContrastBolus_Agent', 'ContrastBolus_Route', 'ContrastBolus_Volume', 'Contrast_Flow_Rate', 'ContrastBolus_Ingredient_Concentration', 'Image_Plane', 'Image_Position_Patient', 'Image_Orientation_Patient', 'Pixel_Spacing', 'Slice_Thickness', 'Slice_Location', 'CT_Image', 'Image_Type', 'Rescale_Intercept', 'Rescale_Slope', 'General_Equipment', 'Manufacturer', 'Station_Name', 'Manufacturer_Model_Name', 'Software_Versions', 'SOP_Common', 'SOP_Class_UID', 'SOP_Instance_UID', 'Frame_of_Reference', 'Patient_Study', 'Patient_Age', 'Patient_Weight', 'Procedure_Code_Sequence', 'Code_Value', 'Coding_Scheme_Designator', 'Code_Meaning', 'Referenced_Performed_Procedure_Step_Sequence', 'Referenced_SOP_Class_UID', 'Referenced_SOP_Instance_UID']
+Folgende Features wurden gefunden: {'Manufacturer': '', 'StudyID': '', 'StudyTime': '', 'ProtocolName': '', 'StudyDate': '', 'ContrastBolusRoute': '', 'ImageType': '', 'DeidentificationMethod': '', 'BodyPartExamined': '', 'PatientName': '', 'BitsAllocated': '', 'ImagePositionPatient': '', 'PatientAge': '', 'ReferringPhysicianName': '', 'SamplesPerPixel': '', 'SOPClassUID': '', 'FrameOfReferenceUID': '', 'ReferencedSOPClassUID': '', 'Modality': '', 'CodeMeaning': '', 'PhotometricInterpretation': '', 'SOPInstanceUID': '', 'ContrastBolusAgent': '', 'SliceThickness': '', 'InstanceNumber': '', 'Rows': '', 'CodeValue': '', 'PatientPosition': '', 'ContrastBolusIngredientConcentration': '', 'StudyDescription': '', 'PixelSpacing': '', 'ProcedureCodeSequence': '', 'ManufacturerModelName': '', 'Columns': '', 'HighBit': '', 'SeriesDescription': '', 'RescaleSlope': '', 'SoftwareVersions': '', 'PatientWeight': '', 'ReferencedSOPInstanceUID': '', 'AccessionNumber': '', 'SliceLocation': '', 'ContrastBolusVolume': '', 'RescaleIntercept': '', 'CodingSchemeDesignator': '', 'ImageOrientationPatient': '', 'PatientIdentityRemoved': '', 'ContrastFlowRate': '', 'SeriesNumber': '', 'PixelRepresentation': '', 'StationName': '', 'BitsStored': '', 'Source': '', 'File': '', 'Usage': '', 'Sex': ''}
+Die Erstellung der Features hat 0.0034439563751220703 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Ein Beispiel aus der Menge train_sents: [['CT-Training-BE006', '049Y']].
+train_sents hat die Länge 56.
+Ein Beispiel aus der Menge test_sents: [[['LUNGx-CT019', '060Y']], [['LUNGx-CT058', '071Y']], [['LUNGx-CT025', '064Y']], [['CT-Training-LC001', '1.2.840.113704.1.111.9856.1167872600.1']], [['LUNGx-CT023', '079Y']], [['LUNGx-CT049', '050Y']], [['LUNGx-CT060', '061Y']], [['LUNGx-CT015', '078Y']], [['LUNGx-CT041', '083Y']], [['LUNGx-CT034', '060Y']], [['LUNGx-CT057', '1.3.1383526335824072935697077573466183105731337410925']], [['LUNGx-CT047', '054Y']], [['LUNGx-CT036', '068Y']], [['LUNGx-CT030', '046Y']]].
+test_sents hat die Länge 14.
+Ein Beispiel für die Daten, nachdem sie an sent2features und sent2labels gesendet wurden:
+y_train an Stelle 0: 049Y
+X_train an Stelle 0: {'Manufacturer': 'None', 'StudyID': 'None', 'StudyTime': 'None', 'ProtocolName': 'None', 'StudyDate': 'None', 'ContrastBolusRoute': 'None', 'ImageType': 'None', 'DeidentificationMethod': 'dcmfix 20100920-g81272519', 'BodyPartExamined': 'None', 'PatientName': 'CT-Training-BE006', 'BitsAllocated': 'None', 'ImagePositionPatient': 'None', 'PatientAge': 'None', 'ReferringPhysicianName': 'None', 'SamplesPerPixel': 'None', 'SOPClassUID': 'None', 'FrameOfReferenceUID': 'None', 'ReferencedSOPClassUID': 'None', 'Modality': 'None', 'CodeMeaning': 'None', 'PhotometricInterpretation': 'None', 'SOPInstanceUID': 'None', 'ContrastBolusAgent': 'None', 'SliceThickness': 'None', 'InstanceNumber': 'None', 'Rows': 'None', 'CodeValue': 'None', 'PatientPosition': 'None', 'ContrastBolusIngredientConcentration': 'None', 'StudyDescription': 'None', 'PixelSpacing': 'None', 'ProcedureCodeSequence': 'None', 'ManufacturerModelName': 'None', 'Columns': 'None', 'HighBit': 'None', 'SeriesDescription': 'None', 'RescaleSlope': 'None', 'SoftwareVersions': 'None', 'PatientWeight': 'None', 'ReferencedSOPInstanceUID': 'None', 'AccessionNumber': 'None', 'SliceLocation': 'None', 'ContrastBolusVolume': 'None', 'RescaleIntercept': 'None', 'CodingSchemeDesignator': 'None', 'ImageOrientationPatient': 'None', 'PatientIdentityRemoved': 'YES', 'ContrastFlowRate': 'None', 'SeriesNumber': 'None', 'PixelRepresentation': 'None', 'StationName': 'None', 'BitsStored': 'None', 'Source': 'None', 'File': 'None', 'Usage': 'None', 'Sex': 'None'}
+--------------------------------------------------------------------------------------------------------------
+Sende die Knoten jedes sents aus X_train an die nodes_to_features-Methode, die dann die Features für jeden Knoten des sents ausliest
+Die Methode sent_to_features hat für X_train 96.70268201828003 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Für jeden sent in y_train wird das Label für jeden enthaltenen Knoten gefunden.
+Die Methode sent_to_labels hat 2.7894973754882812e-05 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Sende die Knoten jedes sents aus X_test an die nodes_to_features-Methode, die dann die Features für jeden Knoten des sents ausliest
+Die Methode sent_to_features hat für X_test 24.41138005256653 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Für jeden sent in y_test wird das Label für jeden enthaltenen Knoten gefunden.
+Die Methode sent_to_labels hat 8.821487426757812e-06 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+Das eigentliche Training mithilfe der CRFs wird durchgeführt.
+Training...
+Das Training ist beendet. Es hat 0.0158538818359375 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Evaluation des Trainings:
+Die Knotenlabels:
+['049Y', '073Y', '059Y', '080Y', '068Y', '034Y', '077Y', '060Y', '057Y', '056Y', '066Y', '018Y', '054Y', '051Y', '047Y', '079Y', '069Y', '037Y', '1.2.840.113704.1.111.6436.1168891603.1', '1-414.dcm', '065Y', '084Y', '052Y', '053Y', '042Y', '050Y', '081Y', '063Y', '062Y', '055Y', '044Y', '029Y', '064Y', '070Y', '067Y', '061Y', '074Y']
+Prediction-Vektor wird erstellt.
+Die Erstellung des Prediction-Vektors hat 0.0005829334259033203 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Der F1-Score wird für alle Label berechnet
+0.0
+Die Berechnung des F1-Scores hat 0.0009610652923583984 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Betrachte einzelne Labels im Detail:
+                                        precision    recall  f1-score   support
+
+                             1-414.dcm     1.0000    1.0000    1.0000       0.0
+1.2.840.113704.1.111.6436.1168891603.1     1.0000    1.0000    1.0000       0.0
+                                  018Y     1.0000    1.0000    1.0000       0.0
+                                  029Y     1.0000    1.0000    1.0000       0.0
+                                  034Y     1.0000    1.0000    1.0000       0.0
+                                  037Y     1.0000    1.0000    1.0000       0.0
+                                  042Y     1.0000    1.0000    1.0000       0.0
+                                  044Y     1.0000    1.0000    1.0000       0.0
+                                  047Y     1.0000    1.0000    1.0000       0.0
+                                  049Y     1.0000    1.0000    1.0000       0.0
+                                  050Y     1.0000    0.0000    0.0000       1.0
+                                  051Y     1.0000    1.0000    1.0000       0.0
+                                  052Y     1.0000    1.0000    1.0000       0.0
+                                  053Y     1.0000    1.0000    1.0000       0.0
+                                  054Y     1.0000    0.0000    0.0000       1.0
+                                  055Y     1.0000    1.0000    1.0000       0.0
+                                  056Y     1.0000    1.0000    1.0000       0.0
+                                  057Y     1.0000    1.0000    1.0000       0.0
+                                  059Y     0.0000    1.0000    0.0000       0.0
+                                  060Y     1.0000    0.0000    0.0000       2.0
+                                  061Y     1.0000    0.0000    0.0000       1.0
+                                  062Y     1.0000    1.0000    1.0000       0.0
+                                  063Y     1.0000    1.0000    1.0000       0.0
+                                  064Y     1.0000    0.0000    0.0000       1.0
+                                  065Y     1.0000    1.0000    1.0000       0.0
+                                  066Y     1.0000    1.0000    1.0000       0.0
+                                  067Y     1.0000    1.0000    1.0000       0.0
+                                  068Y     1.0000    0.0000    0.0000       1.0
+                                  069Y     1.0000    1.0000    1.0000       0.0
+                                  070Y     1.0000    1.0000    1.0000       0.0
+                                  073Y     1.0000    1.0000    1.0000       0.0
+                                  074Y     1.0000    1.0000    1.0000       0.0
+                                  077Y     1.0000    1.0000    1.0000       0.0
+                                  079Y     1.0000    0.0000    0.0000       1.0
+                                  080Y     1.0000    1.0000    1.0000       0.0
+                                  081Y     1.0000    1.0000    1.0000       0.0
+                                  084Y     1.0000    1.0000    1.0000       0.0
+
+                             micro avg     0.0000    0.0000    0.0000       8.0
+                             macro avg     0.9730    0.8108    0.7838       8.0
+                          weighted avg     1.0000    0.0000    0.0000       8.0
+
+Die Betrachtung der Labels im Detail hat 0.0 Sekunden gedauert.

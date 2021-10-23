@@ -1,0 +1,123 @@
+/usr/local/bin/python3.8 "/Users/tobias/Library/Mobile Documents/com~apple~CloudDocs/Documents/Uni/Masterarbeit/Python/CRFs/scripts for ssh/crf_fromImport_12_noDups_5addFeat_rmRel.py"
+starting main
+Die sents werden erstellt.
+Die Erstellung der sents hat 0.6023178100585938 Sekunden gedauert.
+Beispiel aus sents (Liste): [('1.2.840.113704.1.111.1724.1168391407.1', '20070109191007'), ('1.2.840.113704.1.111.1724.1168392386.17', '1.2.840.10008.3.1.2.3.3')]
+--------------------------------------------------------------------------------------------------------------
+Die Daten werden in Test- und Trainingsmenge (train_sents und test_sents) geteilt
+Die Teilung der Daten hat 0.0002758502960205078 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Die Features werden ausgelesen und in einem Dictionary gespeichert.
+['Patient', 'General_Study', 'General_Series', 'General_Image', 'Image_Pixel', 'Samples_per_Pixel', 'Photometric_Interpretation', 'Rows', 'Columns', 'Bits_Allocated', 'Bits_Stored', 'High_Bit', 'Pixel_Representation', 'ContrastBolus', 'ContrastBolus_Agent', 'ContrastBolus_Route', 'ContrastBolus_Volume', 'Contrast_Flow_Rate', 'ContrastBolus_Ingredient_Concentration', 'Image_Plane', 'Image_Position_Patient', 'Image_Orientation_Patient', 'Pixel_Spacing', 'Slice_Thickness', 'Slice_Location', 'CT_Image', 'Image_Type', 'Rescale_Intercept', 'Rescale_Slope', 'General_Equipment', 'Manufacturer', 'Station_Name', 'Manufacturer_Model_Name', 'Software_Versions', 'SOP_Common', 'SOP_Class_UID', 'SOP_Instance_UID', 'Frame_of_Reference', 'Patient_Study', 'Patient_Age', 'Patient_Weight', 'Procedure_Code_Sequence', 'Code_Value', 'Coding_Scheme_Designator', 'Code_Meaning', 'Referenced_Performed_Procedure_Step_Sequence', 'Referenced_SOP_Class_UID', 'Referenced_SOP_Instance_UID']
+Folgende Features wurden gefunden: {'AccessionNumber': '', 'PatientAge': '', 'CodeValue': '', 'PatientName': '', 'BitsAllocated': '', 'PatientIdentityRemoved': '', 'ContrastBolusAgent': '', 'ReferencedSOPInstanceUID': '', 'SoftwareVersions': '', 'PixelRepresentation': '', 'StudyID': '', 'ManufacturerModelName': '', 'CodingSchemeDesignator': '', 'PatientPosition': '', 'ProtocolName': '', 'ImageType': '', 'StudyDescription': '', 'ReferringPhysicianName': '', 'StudyDate': '', 'ContrastBolusRoute': '', 'DeidentificationMethod': '', 'Columns': '', 'PixelSpacing': '', 'ImagePositionPatient': '', 'SliceLocation': '', 'BodyPartExamined': '', 'StudyTime': '', 'BitsStored': '', 'ContrastFlowRate': '', 'ProcedureCodeSequence': '', 'PatientWeight': '', 'PhotometricInterpretation': '', 'RescaleSlope': '', 'SliceThickness': '', 'ContrastBolusVolume': '', 'ReferencedSOPClassUID': '', 'SOPInstanceUID': '', 'Manufacturer': '', 'SOPClassUID': '', 'FrameOfReferenceUID': '', 'CodeMeaning': '', 'RescaleIntercept': '', 'ImageOrientationPatient': '', 'SamplesPerPixel': '', 'SeriesDescription': '', 'Rows': '', 'StationName': '', 'Modality': '', 'ContrastBolusIngredientConcentration': '', 'InstanceNumber': '', 'HighBit': '', 'SeriesNumber': '', 'Source': '', 'File': '', 'Usage': '', 'Sex': '', 'previous': '', 'next': ''}
+Die Erstellung der Features hat 0.0034379959106445312 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Ein Beispiel aus der Menge train_sents: [('1.2.840.113704.1.111.992.1168464595.1', '20070110152955'), ('1.2.840.113704.1.111.992.1168464802.17', '1.2.840.10008.3.1.2.3.3')].
+train_sents hat die Laenge 56.
+Ein Beispiel aus der Menge test_sents: [('1.3.1161898371247050221746438756738977277640022749902', '20060916103629'), ('1.3.767780323452591888690483144675401655804730579323', '2.0.0')].
+test_sents hat die Laenge 14.
+Ein Beispiel fuer die Daten, nachdem sie an sent2features und sent2labels gesendet wurden:
+train_sents[0]: [('1.2.840.113704.1.111.992.1168464595.1', '20070110152955'), ('1.2.840.113704.1.111.992.1168464802.17', '1.2.840.10008.3.1.2.3.3')]
+--------------------------------------------------------------------------------------------------------------
+Sende die Knoten jedes sents aus X_train an die nodes_to_features-Methode, die dann die Features fuer jeden Knoten des sents ausliest
+56
+Die Methode sent_to_features hat fuer X_train 43.00204515457153 Sekunden gebraucht.
+56
+--------------------------------------------------------------------------------------------------------------
+Fuer jeden sent in y_train wird das Label fuer jeden enthaltenen Knoten gefunden.
+Die Methode sent_to_labels hat 5.698204040527344e-05 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Sende die Knoten jedes sents aus X_test an die nodes_to_features-Methode, die dann die Features fuer jeden Knoten des sents ausliest
+Die Methode sent_to_features hat fuer X_test 11.970761060714722 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Fuer jeden sent in y_test wird das Label fuer jeden enthaltenen Knoten gefunden.
+Die Methode sent_to_labels hat 1.621246337890625e-05 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+Das eigentliche Training mithilfe der CRFs wird durchgefuehrt.
+Training...
+Das Training ist beendet. Es hat 0.29739904403686523 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Evaluation des Trainings:
+Beispiel fuer ein Knotenlabel:
+20070110152955
+Prediction-Vektor wird erstellt.
+Die Erstellung des Prediction-Vektors hat 0.001795053482055664 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Der F1-Score wird fuer alle Label berechnet
+0.5694444444444444
+Die Berechnung des F1-Scores hat 0.0020520687103271484 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Betrachte einzelne Labels im Detail:
+                         precision    recall  f1-score   support
+
+                  2.0.0     0.0000    0.0000    0.0000         3
+                  1.2.0     0.5000    1.0000    0.6667         1
+                  2.2.1     0.5000    0.8333    0.6250         6
+1.2.840.10008.3.1.2.3.3     0.8000    1.0000    0.8889         4
+         20060223184401     0.0000    0.0000    0.0000         0
+         20060301142900     0.0000    0.0000    0.0000         0
+         20060323090727     0.0000    0.0000    0.0000         0
+         20060418080752     0.0000    0.0000    0.0000         0
+         20060419094153     0.0000    0.0000    0.0000         0
+         20060430100716     0.0000    0.0000    0.0000         0
+         20060604144501     0.0000    0.0000    0.0000         0
+         20060610132139     0.0000    0.0000    0.0000         0
+         20060615175326     0.0000    0.0000    0.0000         0
+         20060616130414     0.0000    0.0000    0.0000         0
+         20060701121957     0.0000    0.0000    0.0000         0
+         20060703142614     0.0000    0.0000    0.0000         0
+         20060706084848     0.0000    0.0000    0.0000         0
+         20060708200824     0.0000    0.0000    0.0000         0
+         20060726082656     0.0000    0.0000    0.0000         0
+         20060812131324     0.0000    0.0000    0.0000         0
+         20060815131801     0.0000    0.0000    0.0000         0
+         20060818162812     0.0000    0.0000    0.0000         0
+         20060824191708     0.0000    0.0000    0.0000         0
+         20060827233106     0.0000    0.0000    0.0000         0
+         20060924110535     0.0000    0.0000    0.0000         0
+         20061016103959     0.0000    0.0000    0.0000         0
+         20061021095036     0.0000    0.0000    0.0000         0
+         20061122131544     0.0000    0.0000    0.0000         0
+         20061217144550     0.0000    0.0000    0.0000         0
+         20061227192454     0.0000    0.0000    0.0000         0
+         20061231084102     0.0000    0.0000    0.0000         0
+         20070103103543     0.0000    0.0000    0.0000         0
+         20070103173050     0.0000    0.0000    0.0000         0
+         20070103190320     0.0000    0.0000    0.0000         0
+         20070104122031     0.0000    0.0000    0.0000         0
+         20070105084635     0.0000    0.0000    0.0000         0
+         20070105101619     0.0000    0.0000    0.0000         0
+         20070108165920     0.0000    0.0000    0.0000         0
+         20070110152955     0.0000    0.0000    0.0000         0
+         20070111035648     0.0000    0.0000    0.0000         0
+         20070112093246     0.0000    0.0000    0.0000         0
+         20070112201659     0.0000    0.0000    0.0000         0
+         20070113104535     0.0000    0.0000    0.0000         0
+         20070113121955     0.0000    0.0000    0.0000         0
+         20070114143214     0.0000    0.0000    0.0000         0
+         20070115140643     0.0000    0.0000    0.0000         0
+         20070123091631     0.0000    0.0000    0.0000         0
+         20070213181320     0.0000    0.0000    0.0000         0
+         20070220114923     0.0000    0.0000    0.0000         0
+         20070226144646     0.0000    0.0000    0.0000         0
+         20070305132942     0.0000    0.0000    0.0000         0
+         20070306121205     0.0000    0.0000    0.0000         0
+         20070311091446     0.0000    0.0000    0.0000         0
+         20070314125112     0.0000    0.0000    0.0000         0
+         20070318104814     0.0000    0.0000    0.0000         0
+         20070403093439     0.0000    0.0000    0.0000         0
+         20070404163237     0.0000    0.0000    0.0000         0
+         20070415101904     0.0000    0.0000    0.0000         0
+         20070509100837     0.0000    0.0000    0.0000         0
+         20070525153022     0.0000    0.0000    0.0000         0
+
+              micro avg     0.3571    0.7143    0.4762        14
+              macro avg     0.0300    0.0472    0.0363        14
+           weighted avg     0.4786    0.7143    0.5694        14
+
+Die Betrachtung der Labels im Detail hat 0.0 Sekunden gedauert.
+/usr/local/lib/python3.8/site-packages/sklearn/utils/validation.py:70: FutureWarning: Pass labels=['2.0.0', '1.2.0', '2.2.1', '1.2.840.10008.3.1.2.3.3', '20060223184401', '20060301142900', '20060323090727', '20060418080752', '20060419094153', '20060430100716', '20060604144501', '20060610132139', '20060615175326', '20060616130414', '20060701121957', '20060703142614', '20060706084848', '20060708200824', '20060726082656', '20060812131324', '20060815131801', '20060818162812', '20060824191708', '20060827233106', '20060924110535', '20061016103959', '20061021095036', '20061122131544', '20061217144550', '20061227192454', '20061231084102', '20070103103543', '20070103173050', '20070103190320', '20070104122031', '20070105084635', '20070105101619', '20070108165920', '20070110152955', '20070111035648', '20070112093246', '20070112201659', '20070113104535', '20070113121955', '20070114143214', '20070115140643', '20070123091631', '20070213181320', '20070220114923', '20070226144646', '20070305132942', '20070306121205', '20070311091446', '20070314125112', '20070318104814', '20070403093439', '20070404163237', '20070415101904', '20070509100837', '20070525153022'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+
+Process finished with exit code 0

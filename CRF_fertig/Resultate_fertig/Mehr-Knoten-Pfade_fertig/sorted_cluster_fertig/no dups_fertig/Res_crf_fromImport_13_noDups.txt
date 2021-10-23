@@ -1,0 +1,65 @@
+/usr/local/bin/python3.8 "/Users/tobias/Library/Mobile Documents/com~apple~CloudDocs/Documents/Uni/Masterarbeit/Python/CRFs/scripts for ssh/crf_fromImport_13_noDups.py"
+starting main
+Die sents werden erstellt.
+Die Erstellung der sents hat 0.6433217525482178 Sekunden gedauert.
+Beispiel aus sents (Liste): [('1.2.840.113704.1.111.1724.1168391407.1', 'Mandatory'), ('1.2.840.113704.1.111.1724.1168392386.17', 'Mandatory')]
+--------------------------------------------------------------------------------------------------------------
+Die Daten werden in Test- und Trainingsmenge (train_sents und test_sents) geteilt
+Die Teilung der Daten hat 0.00029206275939941406 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Die Features werden ausgelesen und in einem Dictionary gespeichert.
+['Patient', 'General_Study', 'General_Series', 'General_Image', 'Image_Pixel', 'Samples_per_Pixel', 'Photometric_Interpretation', 'Rows', 'Columns', 'Bits_Allocated', 'Bits_Stored', 'High_Bit', 'Pixel_Representation', 'ContrastBolus', 'ContrastBolus_Agent', 'ContrastBolus_Route', 'ContrastBolus_Volume', 'Contrast_Flow_Rate', 'ContrastBolus_Ingredient_Concentration', 'Image_Plane', 'Image_Position_Patient', 'Image_Orientation_Patient', 'Pixel_Spacing', 'Slice_Thickness', 'Slice_Location', 'CT_Image', 'Image_Type', 'Rescale_Intercept', 'Rescale_Slope', 'General_Equipment', 'Manufacturer', 'Station_Name', 'Manufacturer_Model_Name', 'Software_Versions', 'SOP_Common', 'SOP_Class_UID', 'SOP_Instance_UID', 'Frame_of_Reference', 'Patient_Study', 'Patient_Age', 'Patient_Weight', 'Procedure_Code_Sequence', 'Code_Value', 'Coding_Scheme_Designator', 'Code_Meaning', 'Referenced_Performed_Procedure_Step_Sequence', 'Referenced_SOP_Class_UID', 'Referenced_SOP_Instance_UID']
+Folgende Features wurden gefunden: {'StudyID': '', 'PhotometricInterpretation': '', 'SeriesDescription': '', 'ProtocolName': '', 'SamplesPerPixel': '', 'Modality': '', 'BitsAllocated': '', 'SOPInstanceUID': '', 'ContrastBolusAgent': '', 'SliceLocation': '', 'SliceThickness': '', 'ImageType': '', 'ManufacturerModelName': '', 'CodingSchemeDesignator': '', 'PatientPosition': '', 'AccessionNumber': '', 'RescaleSlope': '', 'StudyTime': '', 'PatientName': '', 'CodeMeaning': '', 'StationName': '', 'HighBit': '', 'Columns': '', 'SeriesNumber': '', 'BodyPartExamined': '', 'BitsStored': '', 'StudyDate': '', 'ContrastBolusVolume': '', 'Manufacturer': '', 'PixelSpacing': '', 'FrameOfReferenceUID': '', 'PixelRepresentation': '', 'ProcedureCodeSequence': '', 'SoftwareVersions': '', 'PatientWeight': '', 'RescaleIntercept': '', 'CodeValue': '', 'PatientIdentityRemoved': '', 'DeidentificationMethod': '', 'SOPClassUID': '', 'ReferencedSOPInstanceUID': '', 'InstanceNumber': '', 'ContrastFlowRate': '', 'ContrastBolusRoute': '', 'ReferringPhysicianName': '', 'PatientAge': '', 'Rows': '', 'ContrastBolusIngredientConcentration': '', 'ImagePositionPatient': '', 'StudyDescription': '', 'ImageOrientationPatient': '', 'ReferencedSOPClassUID': '', 'Source': '', 'File': '', 'Usage': '', 'Sex': '', 'previous': '', 'next': ''}
+Die Erstellung der Features hat 0.003676891326904297 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Ein Beispiel aus der Menge train_sents: [('1.3.590935773227994588865418895161359904534542131841', 'Procedure_Code_Sequence'), ('1.3.486130223248695939804080844700827694434925553130', 'Mandatory')].
+train_sents hat die Laenge 56.
+Ein Beispiel aus der Menge test_sents: [('1.2.840.113704.1.111.1724.1168391407.1', 'Mandatory'), ('1.2.840.113704.1.111.1724.1168392386.17', 'Mandatory')].
+test_sents hat die Laenge 14.
+Ein Beispiel fuer die Daten, nachdem sie an sent2features und sent2labels gesendet wurden:
+train_sents[0]: [('1.3.590935773227994588865418895161359904534542131841', 'Procedure_Code_Sequence'), ('1.3.486130223248695939804080844700827694434925553130', 'Mandatory')]
+--------------------------------------------------------------------------------------------------------------
+Sende die Knoten jedes sents aus X_train an die nodes_to_features-Methode, die dann die Features fuer jeden Knoten des sents ausliest
+56
+Die Methode sent_to_features hat fuer X_train 30.097203016281128 Sekunden gebraucht.
+56
+--------------------------------------------------------------------------------------------------------------
+Fuer jeden sent in y_train wird das Label fuer jeden enthaltenen Knoten gefunden.
+Die Methode sent_to_labels hat 4.410743713378906e-05 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Sende die Knoten jedes sents aus X_test an die nodes_to_features-Methode, die dann die Features fuer jeden Knoten des sents ausliest
+Die Methode sent_to_features hat fuer X_test 8.824793815612793 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Fuer jeden sent in y_test wird das Label fuer jeden enthaltenen Knoten gefunden.
+Die Methode sent_to_labels hat 2.47955322265625e-05 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+Das eigentliche Training mithilfe der CRFs wird durchgefuehrt.
+Training...
+Das Training ist beendet. Es hat 0.02728414535522461 Sekunden gebraucht.
+--------------------------------------------------------------------------------------------------------------
+Evaluation des Trainings:
+Beispiel fuer ein Knotenlabel:
+Procedure_Code_Sequence
+Prediction-Vektor wird erstellt.
+Die Erstellung des Prediction-Vektors hat 0.0008587837219238281 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Der F1-Score wird fuer alle Label berechnet
+0.7660028449502134
+Die Berechnung des F1-Scores hat 0.0018498897552490234 Sekunden gedauert.
+--------------------------------------------------------------------------------------------------------------
+Betrachte einzelne Labels im Detail:
+                         precision    recall  f1-score   support
+
+              Mandatory     0.9375    0.7143    0.8108        21
+Procedure_Code_Sequence     0.5000    0.8571    0.6316         7
+
+               accuracy                         0.7500        28
+              macro avg     0.7188    0.7857    0.7212        28
+           weighted avg     0.8281    0.7500    0.7660        28
+
+Die Betrachtung der Labels im Detail hat 0.0 Sekunden gedauert.
+/usr/local/lib/python3.8/site-packages/sklearn/utils/validation.py:70: FutureWarning: Pass labels=['Mandatory', 'Procedure_Code_Sequence'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+
+Process finished with exit code 0
